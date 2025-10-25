@@ -1,4 +1,5 @@
 import numpy as np
+from colorama import Fore, Back, Style, init
 import operations.arithmetic as ar
 import operations.aggregate as ag
 
@@ -15,4 +16,6 @@ vect=np.array([1,2])
 
 abc=ar.MatrixArithmetic(mat1, mat2)
 agg=ag.Aggregate(mat1)
-print(agg.std_dev("s", "row"))
+# print(agg.std_dev("s", "row"))
+
+print (np.linspace(0,9, 3))
