@@ -178,6 +178,7 @@ class Aggregate:
         else:
             raise ValueError("Invalid method. Use 'p' for population and 's' for sample.")
       
+      
     # (PRIVATE INSTANCES)
     # _variance_
     def __variance(self, delta, axis):
