@@ -26,7 +26,15 @@ class MatrixArithmetic:
             return (self.arr1*self.arr2)
         except Exception as e:
             return (f"Error in Element-wise Multiplication: {e}")
-
+        
+    # Division
+    def division(self):
+        try:
+            inv_b = np.linalg.inv(self.arr2)
+            return np.dot(self.arr1,inv_b)
+        except Exception as e:
+            return (f"Error in Division: {e}")
+    
     # Dot Product
     def dot_product(self):
         try:
@@ -36,6 +44,13 @@ class MatrixArithmetic:
                 raise ValueError(f"Shape mismatch: Array 1 shape: {self.arr1.shape}, Array 2 shape: {self.arr2.shape}")
         except Exception as e:
             return (f"Error in Dot Product: {e}")
+        
+    # Linear System
+    def lin_sys(self):
+        try:
+            return np.linalg.solve(self.arr1, self.arr2)
+        except Exception as e:
+            return (f"Error in Solving Linear System: {e}")
 
     # Scalar Multiplication
     def s_multiplication(self, n):
