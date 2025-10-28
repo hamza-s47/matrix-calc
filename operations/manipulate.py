@@ -2,7 +2,7 @@ import numpy as np
 
 class Manipulate:
     def __init__(self, arr):
-        self.arr=arr
+        self.arr=np.array(arr)
         
     def flatten(self):
         try:
@@ -16,14 +16,12 @@ class Manipulate:
         except Exception as e:
             return f"Error while Raveling: {e}"
         
-    def sorting(self, axis=None):
+    def sorting(self, ax):
         try:
-            if axis in (None, "row", "r"):
-                return np.sort(self.arr, axis=-1)
-            elif axis in ("col", "c"):
-                return np.sort(self.arr, axis=0)
+            if ax in (-1, 0):
+                return np.sort(self.arr, axis=ax)
             else:
-                raise ValueError("Invalid axis value, use 'row', 'col', or nothing")
+                raise ValueError("Invalid axis value, use '0' for Column-wise")
         except Exception as e:
             return f"Error while Sorting: {e}"
         

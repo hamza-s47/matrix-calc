@@ -1,6 +1,6 @@
 import numpy as np
 
-class InitMath:
+class Init:
     
     # Ones
     def ones(self, row, col=None, dt=None):

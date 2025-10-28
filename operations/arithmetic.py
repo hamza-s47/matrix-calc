@@ -2,8 +2,10 @@ import numpy as np
 
 class MatrixArithmetic:
     def __init__(self, arr1, arr2=None):
-        self.arr1 = arr1
-        self.arr2 = arr2
+        self.arr1 = np.array(arr1)
+        if arr2 is not None:
+            self.arr2 = np.array(arr2)
+            
 
     
     # Addition

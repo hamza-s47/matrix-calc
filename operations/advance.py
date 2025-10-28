@@ -2,7 +2,7 @@ import numpy as np
 
 class AdvanceOps:
     def __init__(self, arr):
-        self.arr=arr
+        self.arr=np.array(arr)
         
     # Determinant
     def det(self):
