@@ -18,7 +18,7 @@ class Manipulate:
         
     def sorting(self, ax):
         try:
-            if ax in (-1, 0):
+            if ax in (1, -1, 0):
                 return np.sort(self.arr, axis=ax)
             else:
                 raise ValueError("Invalid axis value, use '0' for Column-wise")

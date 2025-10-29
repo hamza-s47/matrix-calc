@@ -13,6 +13,25 @@ def Adv(key, arr):
     }
     return adv_dict.get(key, f"'{key}' does not exist.")
 
+# AGGREGATE
+def Aggregate(key, arr, arr2=None, axis=-1, method=1):
+    agg=aggregate.Aggregate(arr)
+    
+    agg_dict={
+        "corr_coef":agg.corr_coef(arr2),
+        "cum_prod":agg.cum_prod(axis),
+        "cum_sum":agg.cum_sum(axis),
+        "max":agg.max(axis),
+        "mean":agg.mean(axis),
+        "median":agg.median(axis),
+        "min":agg.min(axis),
+        "prod":agg.prod(axis),
+        "sum":agg.min(axis),
+        "var":agg.var(method, axis),
+        "std":agg.std_dev(method, axis),
+    }
+    return agg_dict.get(key, f"'{key}' does not exist.")
+
 # ARITHMETIC
 def Arithmetic(key, arr1, arr2=None, k=None):
     arth=arithmetic.MatrixArithmetic(arr1, arr2)
@@ -32,6 +51,21 @@ def Arithmetic(key, arr1, arr2=None, k=None):
         "subtract":arth.subtraction(),
     }
     return arth_dict.get(key, f"'{key}' does not exist.")
+
+# FILE MANAGEMENT
+def file_sys(key, fileName, arr=None, d=None):
+    fileSys=files.FileSystem()
+    
+    fileSys_dict={
+        "loadNpy":lambda: fileSys.load_npy(fileName),
+        "saveNpy":lambda: fileSys.save_npy(fileName, arr) if arr is not None else "No array provided.",
+        "loadTxt":lambda: fileSys.load_txt(fileName, d),
+        "saveTxt":lambda: fileSys.save_txt(fileName, arr, " " if d is None else d) if arr is not None else "No array provided."
+    }
+    func = fileSys_dict.get(key)
+    if func is None:
+        return f"'{key}' does not exist."
+    return func()
 
 # MANIPULATE
 def Manip(key, arr, axis=-1):

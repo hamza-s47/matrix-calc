@@ -2,212 +2,131 @@ import numpy as np
 
 class Aggregate:
     def __init__(self, arr):
-        self.arr=arr
+        self.arr=np.array(arr)
         
     # Correlation Coefficient
     def corr_coef(self, arr2):
         try:
-            if self.arr.ndim==1 and arr2.ndim==1:
-               return (np.corrcoef(self.arr, arr2))
+            nArr2=np.array(arr2)
+            if self.arr.ndim==1 and nArr2.ndim==1:
+               return (np.corrcoef(self.arr, nArr2))[0,1]
             else:
-                return (np.corrcoef(self.arr, arr2, rowvar=False))
+                return (np.corrcoef(self.arr, nArr2, rowvar=False))
         except Exception as e:
             return(f"Error while finding Correlation Coefficient: {e}")
         
     # Commulative Product
-    def cum_prod(self, axis=None):
+    def cum_prod(self, ax):
         try:
-            if axis is None:
-               return (np.cumprod(self.arr))
+            if ax in (0, 1, -1):
+               return (np.cumprod(self.arr, axis=ax))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.cumprod(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.cumprod(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Commulative Product: {e}")
         
     # Cummulative Sum
-    def cum_sum(self, axis=None):
+    def cum_sum(self, ax):
         try:
-            if axis is None:
-               return (np.cumsum(self.arr))
+            if ax in (0, 1, -1):
+               return (np.cumsum(self.arr, axis=ax))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.cumsum(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.cumsum(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
-            return(f"Error while Finding Cummulative Sum: {e}")
+            return(f"Error while Finding Cumulative Sum: {e}")
         
     # Maximum
-    def max(self, axis=None):
+    def max(self, ax):
         try:
-            if axis is None:
-               return (np.max(self.arr))
+            if ax in (0, 1, -1):
+               return (np.max(self.arr, axis=ax))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.max(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.max(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding maximum value: {e}")
         
     # Mean
-    def mean(self, axis=None):
+    def mean(self, ax):
         try:
-            if axis is None:
-               return (np.mean(self.arr))
-            else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.mean(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.mean(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+            if ax in (0, 1, -1):
+               return (np.mean(self.arr, axis=ax))
+            else: 
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Mean: {e}")
         
     # Median
-    def median(self, axis=None):
+    def median(self, ax):
         try:
-            if axis is None:
-               return (np.median(self.arr))
+            if ax in (0, 1, -1):
+               return (np.median(self.arr, axis=ax))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.median(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.median(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Median: {e}")
     
     # Minimum
-    def min(self, axis=None):
+    def min(self, ax):
         try:
-            if axis is None:
-               return (np.min(self.arr))
-            else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.min(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.min(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+            if ax in (0, 1, -1):
+               return (np.min(self.arr, axis=ax))
+            else: 
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding minimum value: {e}")
         
     # Product of Element
-    def poe(self, axis=None):
+    def prod(self, ax):
         try:
-            if axis is None:
-               return (np.prod(self.arr))
-            else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.prod(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.prod(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+            if ax in (0, 1, -1):
+               return (np.prod(self.arr, axis=ax))
+            else: 
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Product of Element: {e}")
         
-    # Commulative Product
-    def cum_prod(self, axis=None):
-        try:
-            if axis is None:
-               return (np.cumprod(self.arr))
-            else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.cumprod(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.cumprod(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
-        except Exception as e:
-            return(f"Error while finding Commulative Product: {e}")
-    
     # Sum
-    def sum(self, axis=None):
+    def sum(self, ax):
         try:
-            if axis is None:
-               return (np.sum(self.arr))
-            else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.sum(self.arr, axis=0))
-                elif axis_str=="row":
-                    return (np.sum(self.arr, axis=1))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+            if ax in (0, 1, -1):
+               return (np.sum(self.arr, axis=ax))
+            else: 
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while doing sum: {e}")
         
     # Variance
-    def var(self, method, axis=None):
-        method=method.lower()
-        if method in ("p", "population"):
-            return self.__variance(0, axis)
-        elif method in ("s", "sample"):
-            return self.__variance(1, axis)
+    def var(self, method, ax):
+        if method in (0, 1):
+            return self.__variance(method, ax)
         else:
-            raise ValueError("Invalid method. Use 'p' for population and 's' for sample.")
+            raise ValueError("Invalid method. Use '0' for population and '1' for sample.")
         
     # Standard Deviation
-    def std_dev(self, method, axis=None):
-        method=method.lower()
-        if method in ("p", "population"):
-            return self.__sd(0, axis)
-        elif method in ("s", "sample"):
-            return self.__sd(1, axis)
+    def std_dev(self, method, ax):
+        if method in (0, 1):
+            return self.__sd(method, ax)
         else:
-            raise ValueError("Invalid method. Use 'p' for population and 's' for sample.")
+            raise ValueError("Invalid method. Use '0' for population and '1' for sample.")
       
       
     # (PRIVATE INSTANCES)
     # _variance_
-    def __variance(self, delta, axis):
+    def __variance(self, delta, ax):
         try:
-            if axis is None:
-                return (np.var(self.arr, ddof=delta))
+            if ax in (0, 1, -1):
+                return (np.var(self.arr, axis=ax, ddof=delta))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.var(self.arr, axis=0, ddof=delta))
-                elif axis_str=="row":
-                    return (np.var(self.arr, axis=1, ddof=delta))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Variance: {e}")
         
     # _standard deviation_
-    def __sd(self, delta, axis):
+    def __sd(self, delta, ax):
         try:
-            if axis is None:
-                return (np.std(self.arr, ddof=delta))
+            if ax in (0, 1, -1):
+                return (np.std(self.arr, axis=ax, ddof=delta))
             else:
-                axis_str=axis.lower()
-                if axis_str=="col":
-                    return (np.std(self.arr, axis=0, ddof=delta))
-                elif axis_str=="row":
-                    return (np.std(self.arr, axis=1, ddof=delta))
-                else: 
-                    raise ValueError("Invalid axis. Use 'col' or 'row'.")
+                raise ValueError("Invalid axis. Use '0' for Column-wise.")
         except Exception as e:
             return(f"Error while finding Standard Deviation: {e}")
