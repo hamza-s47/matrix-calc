@@ -31,6 +31,21 @@ class Init:
             return np.full(shape,n,dtype=dtype)
         except Exception as e:
             return(f"Error while initializing Constants of {n}:{e}")
+    
+    # Eye Matrix
+    def eye_matrix(self, n, m=None, k=0, dt=None):
+        try:
+            if dt in ("float", "decimal"):
+                dtype = np.float64
+            elif dt is None:
+                dtype = np.int8
+            else:
+                raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
+            return np.eye(N=n, M=m, k=k, dtype=dtype)
+    
+        except Exception as e:
+            return f"Error while initializing Eye Matrix of shape ({n}, {m}): {e}"
+
         
     # Identity Matrix
     def idty_matrix(self, n, dt=None):
@@ -38,13 +53,13 @@ class Init:
             if dt in ("float", "decimal"):
                 dtype=np.float64
             elif dt==None:
-                dtype=np.int64
+                dtype=np.int8
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             
-            return np.eye(n, dtype=dtype)
+            return np.identity(n, dtype=dtype)
         except Exception as e:
-            return(f"Error while initializing Identity Matrix of {n}: {e}")
+            return(f"Error while initializing Identity Matrix of shape {n}: {e}")
         
     # Linspace
     def linspace(self, start, stop, step=None, dt=None):
@@ -52,7 +67,7 @@ class Init:
             if dt in ("float", "decimal"):
                 dtype=np.float64
             elif dt==None:
-                dtype=np.int8
+                dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             
@@ -83,7 +98,7 @@ class Init:
             if dt in ("float", "decimal"):
                 dtype=np.float64
             elif dt==None:
-                dtype=np.int8
+                dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             

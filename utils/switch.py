@@ -14,7 +14,7 @@ def Adv(key, arr):
     return adv_dict.get(key, f"'{key}' does not exist.")
 
 # AGGREGATE
-def Aggregate(key, arr, arr2=None, axis=-1, method=1):
+def Aggregate(key, arr, arr2=None, axis=None, method=1):
     agg=aggregate.Aggregate(arr)
     
     agg_dict={
@@ -68,7 +68,7 @@ def file_sys(key, fileName, arr=None, d=None):
     return func()
 
 # MANIPULATE
-def Manip(key, arr, axis=-1):
+def Manip(key, arr, axis=None):
     manp=manipulate.Manipulate(arr)
     
     manp_dict={

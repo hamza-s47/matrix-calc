@@ -20,6 +20,8 @@ class Manipulate:
         try:
             if ax in (1, -1, 0):
                 return np.sort(self.arr, axis=ax)
+            elif ax is None:
+                return (np.sort(self.arr))
             else:
                 raise ValueError("Invalid axis value, use '0' for Column-wise")
         except Exception as e:
