@@ -13,7 +13,7 @@ class Init:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             
             shape = (row, col) if col is not None else (row,)
-            return np.ones(shape, dtype=dtype)  
+            return np.ones(shape, dtype=dtype)
         except Exception as e:
             return(f"Error while initializing Ones:{e}")
         
@@ -38,7 +38,7 @@ class Init:
             if dt in ("float", "decimal"):
                 dtype = np.float64
             elif dt is None:
-                dtype = np.int8
+                dtype = np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             return np.eye(N=n, M=m, k=k, dtype=dtype)
@@ -79,7 +79,7 @@ class Init:
             return(f"Error while initializing Linspace array: {e}")
         
     # Random
-    def random(self, row, col=None, dt=None, low=0, high=100):
+    def random(self, row, col, dt, low, high):
         try:
             shape = (row, col) if col is not None else (row,)
             if dt in ("float", "decimal"):

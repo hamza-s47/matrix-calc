@@ -1,4 +1,5 @@
-import utils.switch as methods
+# import utils.switch as methods
+from utils.cli import adv_args
 from colorama import Fore, Back, Style, init
 import numpy as np
 
@@ -8,10 +9,10 @@ vect=[1,2,4,3,7,5]
 n=3
 
 
-print(methods.Aggregate("var", mat2, method=0))
+# print(methods.Init("constants", 1, 4, 5.7, dt="decimal"))
 print("\n")
 # for key, val in methods.Inspect("summary", mat1).items():
 #     print(f"{key}: {val}")
 
-abc=np.array([[6,9], [7,8]])
-print(np.sum(abc))
+
+adv_args()
