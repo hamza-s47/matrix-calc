@@ -7,7 +7,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int8
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -22,7 +22,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -52,7 +52,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int8
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -66,7 +66,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -84,7 +84,7 @@ class Init:
             shape = (row, col) if col is not None else (row,)
             if dt in ("float", "decimal"):
                 return np.random.random(shape).astype(np.float64)
-            elif dt==None:
+            elif dt in ("integer", None):
                 return np.random.randint(low, high, size=shape, dtype=np.int64)
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -97,7 +97,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -114,7 +114,7 @@ class Init:
         try:
             if dt in ("float", "decimal"):
                 dtype=np.float64
-            elif dt==None:
+            elif dt in ("integer", None):
                 dtype=np.int8
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")

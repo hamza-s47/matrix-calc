@@ -15,9 +15,9 @@ class FileSystem:
     # Save .npy file
     def save_npy(self, file, arr):
         try:
-            os.makedirs("./outputs", exist_ok=True)
-            np.save(f"./outputs/{file}", arr)
-            return f"File saved successfully as './outputs/{file}.npy'"
+            # os.makedirs("./outputs", exist_ok=True)
+            np.save(f"{file}", arr)
+            return f"File saved successfully as '{file}'"
         except Exception as e:
             return f"Error while saving file: {e}"
 
@@ -33,11 +33,11 @@ class FileSystem:
     # Save .txt file
     def save_txt(self, file, arr, delimiter=" "):
         try:
-            os.makedirs("./outputs", exist_ok=True)
+            # os.makedirs("./outputs", exist_ok=True)
             if not file.endswith(".txt"):
                 file+=".txt"
-            np.savetxt(f"./outputs/{file}", arr, delimiter=delimiter, fmt="%s")
-            return f"File saved successfully as './outputs/{file}'"
+            np.savetxt(f"{file}", arr, delimiter=delimiter, fmt="%s")
+            return f"File saved successfully as '{file}'"
         except Exception as e:
             return f"Error while saving text file: {e}"
 
