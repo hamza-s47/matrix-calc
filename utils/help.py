@@ -125,12 +125,12 @@ help_commands={
     # (Load txt)
     "loadTxt":f"""To load your .txt file use:
     {Fore.YELLOW+Back.GREEN+Style.BRIGHT} loadTxt into/your_file.txt {Style.RESET_ALL}
-    if use delimeter (in my case it is '_')
+    if use delimeter (in this case it is '_')
     {Fore.YELLOW+Back.GREEN+Style.BRIGHT} loadTxt into/your_file.txt _ {Style.RESET_ALL}""",
     # (Save txt)
     "saveTxt":f"""To save your Matrix data into .txt file use:
     {Fore.YELLOW+Back.GREEN+Style.BRIGHT} saveTxt destination/your_file.txt {Style.RESET_ALL}
-    if use delimeter (in my case it is ',')
+    if use delimeter (in this case it is ',')
     {Fore.YELLOW+Back.GREEN+Style.BRIGHT} saveTxt destination/your_file.txt , {Style.RESET_ALL}""",
     
     # MANIPULATE
@@ -150,6 +150,60 @@ help_commands={
     # (Transpose)
     "transpose":f"""To Transpose the Matrix use:
     {Fore.YELLOW+Back.GREEN+Style.BRIGHT} transpose [[1,2], [3,4],...,[n,n,...,n]] {Style.RESET_ALL}""",
+    
+    # INSPECT
+    # (Array Range)
+    "arr_range":f"""To initialize the Vector of Range:
+    Range Vector (in this case its 0 t0 4)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} arr_range 5 {Style.RESET_ALL}
+    Range Vector (in this case its 2 to 8) {Fore.YELLOW+Style.BRIGHT}(optional){Style.RESET_ALL}
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} arr_range 2 9 {Style.RESET_ALL}
+    Range Vector (in this case 2,4,6,8)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} arr_range 2 9 2 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}decimal{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL} for float data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} arr_range 2 9 2 float {Style.RESET_ALL}""",
+    # (Constants)
+    "constants":f"""To initialize the Matrix of Constants:
+    Square Matrix (in this case its 3x3 of 9)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} constants 9 3 {Style.RESET_ALL}
+    Matrix (in this case its 2x4 of 5)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} constants 5 2 4 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}decimal{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL} for float data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} constants 5 2 4 float {Style.RESET_ALL}""",
+    # (Eye)
+    "eye":f"""To initialize the Identity Matrix:
+    Square Identity Matrix (in this case 3x3)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} eye 3 {Style.RESET_ALL}
+    Identity Matrix (in this case 2x4)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} eye 2 4 {Style.RESET_ALL}
+    Identity Matrix (in this case 2x4 and k=1, By default k=0)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} eye 2 4 1 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}decimal{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL} for float data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} eye 2 4 1 float {Style.RESET_ALL}""",
+    # (Linspace)
+    "linspace":f"""To initialize the Linspace Matrix:
+    Linspace Matrix (in this case from 3 to 5)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} linspace 3 5 {Style.RESET_ALL}
+    Linspace Matrix (in this case from 3 to 5 and 4 steps)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} linspace 3 5 4 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}int{Style.RESET_ALL} for integer data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} linspace 3 5 4 int {Style.RESET_ALL}""",
+    # (Ones)
+    "ones":f"""To initialize the Matrix of Ones:
+    Square Matrix (in this case 3x3)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} ones 3 {Style.RESET_ALL}
+    Matrix (in this case 2x4)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} ones 2 4 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}decimal{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL} for float data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} ones 2 4 float {Style.RESET_ALL}""",
+    # (Zeros)
+    "zeros":f"""To initialize the Matrix of Zeros:
+    Square Matrix (in this case 3x3)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} zeros 3 {Style.RESET_ALL}
+    Matrix (in this case 2x4)
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} zeros 2 4 {Style.RESET_ALL}
+    Default data type is {Fore.WHITE+Back.YELLOW+Style.BRIGHT}integer{Style.RESET_ALL}, use {Fore.WHITE+Back.YELLOW+Style.BRIGHT}decimal{Style.RESET_ALL} or {Fore.WHITE+Back.YELLOW+Style.BRIGHT}float{Style.RESET_ALL} for float data type
+    {Fore.YELLOW+Back.GREEN+Style.BRIGHT} zeros 2 4 float {Style.RESET_ALL}""",
     
     # INSPECT
     # (Data Type)

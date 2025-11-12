@@ -74,8 +74,8 @@ def Init(key, row=None, col=None, k=None, dt=None, l=0, h=100):
     init_dict={
         "ones":initialize.ones(row, col, dt),
         "constants":initialize.constants(k, row, col, dt),
-        "eye_matrix":initialize.eye_matrix(row, col, k, dt),
-        "idty_matrix":initialize.idty_matrix(k, dt),
+        "eye":initialize.eye_matrix(row, col, k, dt),
+        # "idty_matrix":initialize.idty_matrix(k, dt),
         "linspace":initialize.linspace(row, col, k, dt),
         "random":initialize.random(row, col, dt, l, h),
         "arr_range":initialize.arr_range(row, col, k, dt),

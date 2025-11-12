@@ -44,29 +44,29 @@ class Init:
             return np.eye(N=n, M=m, k=k, dtype=dtype)
     
         except Exception as e:
-            return f"Error while initializing Eye Matrix of shape ({n}, {m}): {e}"
+            return f"Error while initializing Eye Matrix of shape ({n} x {m}): {e}"
 
         
     # Identity Matrix
-    def idty_matrix(self, n, dt=None):
-        try:
-            if dt in ("float", "decimal"):
-                dtype=np.float64
-            elif dt in ("integer", None):
-                dtype=np.int8
-            else:
-                raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
+    # def idty_matrix(self, n, dt=None):
+    #     try:
+    #         if dt in ("float", "decimal"):
+    #             dtype=np.float64
+    #         elif dt in ("integer", None):
+    #             dtype=np.int8
+    #         else:
+    #             raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
             
-            return np.identity(n, dtype=dtype)
-        except Exception as e:
-            return(f"Error while initializing Identity Matrix of shape {n}: {e}")
+    #         return np.identity(n, dtype=dtype)
+    #     except Exception as e:
+    #         return(f"Error while initializing Identity Matrix of shape {n}: {e}")
         
     # Linspace
     def linspace(self, start, stop, step=None, dt=None):
         try:
-            if dt in ("float", "decimal"):
+            if dt in ("float", "decimal", None):
                 dtype=np.float64
-            elif dt in ("integer", None):
+            elif dt in ("integer", "int"):
                 dtype=np.int64
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
@@ -84,7 +84,7 @@ class Init:
             shape = (row, col) if col is not None else (row,)
             if dt in ("float", "decimal"):
                 return np.random.random(shape).astype(np.float64)
-            elif dt in ("integer", None):
+            elif dt in ("integer", "int", None):
                 return np.random.randint(low, high, size=shape, dtype=np.int64)
             else:
                 raise ValueError("Use 'decimal' or 'float' to get values in decimal (float)")
