@@ -10,9 +10,7 @@ mat2=[[6,9], [7,8]]
 vect=[1,2,4,3,7,5]
 n=3
 
-print(np.arange(8, 15, 2))
-
 args=sys.argv[1:]
 
 # print(cli(args))
-# print(help_commands["linspace"])
+print(help_commands["random"])
